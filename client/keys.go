@@ -74,6 +74,7 @@ func getKeybase(transient bool, buf io.Reader) (keys.Keybase, error) {
 		), nil
 	}
 
+	viper.SetDefault("algo", string(crypto.EthSecp256k1))
 	return keys.NewKeyring(
 		sdk.KeyringServiceName(),
 		viper.GetString(flags.FlagKeyringBackend),
